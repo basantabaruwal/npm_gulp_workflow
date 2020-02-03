@@ -1,0 +1,41 @@
+// Backgrounds
+.bg {
+  &-primary {
+    @include bg-and-text-color($color-primary);
+  }
+  &-dark {
+    @include bg-and-text-color($color-dark);
+  }
+  &-light {
+    @include bg-and-text-color($color-light);
+    border: 1px solid #ccc;
+  }
+  &-success {
+    @include bg-and-text-color($color-success);
+  }
+  &-danger {
+    @include bg-and-text-color($color-danger);
+  }
+  &-white {
+    @include bg-and-text-color(#fff);
+    border: 1px solid #ccc;
+  }
+}
+
+.overlay {
+  &-dark {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-dark, 0.6);
+  }
+}
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-big { margin-bottom: 8rem !important; }
+.u-margin-bottom-medium { margin-bottom: 4rem !important; }
+.u-margin-bottom-small { margin-bottom: 1.6rem !important; }

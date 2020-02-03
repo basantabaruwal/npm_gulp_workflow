@@ -1,0 +1,49 @@
+.card {
+  height: 50rem;
+
+  &-flipping {
+    transition: all 0.5s ease-in-out;
+    perspective: 150rem; // should big value
+    -moz-perspective: 150rem;
+    position: relative;
+
+    &__front {
+      background-color: transparent;
+      transition: inherit;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+      // z-index: 1;
+    overflow: hidden;
+    }
+    &__back {
+      background-color: transparent;
+      transition: inherit;
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+      // z-index: -1;
+    overflow: hidden;
+    }
+
+    &:hover {
+      .card-flipping__front {
+        transform: rotateY(-180deg);
+        backface-visibility: hidden;
+      }
+
+      .card-flipping__back {
+        transform: rotateY(0deg);
+        backface-visibility: hidden;
+      }
+    }
+  }
+}

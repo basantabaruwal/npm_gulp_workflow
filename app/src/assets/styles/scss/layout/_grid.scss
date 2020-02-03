@@ -1,0 +1,55 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+  // color: $color-text-grey;
+  font-size: 1.5rem;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  // for testing only
+  .col-test {
+    background-color: $color-blue-light;
+    padding: 0.8rem;
+  }
+  // for testing only end
+
+  .col {
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+    float: left;
+  }
+
+  .col-4-of-4 {
+      @include grid-col(4, 4);
+  }
+
+  .col-1-of-2 {
+      @include grid-col(1, 2);
+  }
+
+  .col-1-of-3 {
+    @include grid-col(1,3);
+  }
+
+  .col-1-of-4 {
+    @include grid-col(1, 4);
+  }
+
+  .col-2-of-3 {
+      @include grid-col(2, 3);
+  }
+
+  .col-2-of-4 {
+      @include grid-col(2, 4);
+  }
+
+  .col-3-of-4 {
+      @include grid-col(3, 4);
+  }
+
+}

@@ -1,0 +1,105 @@
+// Button
+.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  padding: 1.5rem 4rem;
+  font-size: $default-font-size;
+  background-color: #fff;
+  color: #777;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -10;
+    background-color: inherit;
+
+    transition: all 0.4s;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem 0px rgba($color-dark, 0.2);
+// VERY VERY IMPORTANT
+// select ::after pseudo element when the actual element is hovered
+    &::after {
+      transform: scaleX(1.5) scaleY(1.6);
+      // background-color: red;
+      opacity: 0;
+    }
+  }
+
+  &--white {
+    background-color: #fff;
+    color: #777;
+
+    &::after {
+      // background-color: #fff;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary-light;
+    color: $color-white;
+    &::after {
+      // background-color: inherit;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem 0 rgba($color-dark, 0.2);
+  }
+  &:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem 0 rgba($color-dark, 0.2);
+  }
+
+  &:link {
+  }
+  &:visited {
+  }
+
+  &-animated {
+    animation: slideInFromBottom 1s ease-in-out 0.2s 1;
+    animation-fill-mode: backwards;
+  }
+
+  &--text {
+    display: inline-block;
+    padding: 1rem 2rem;
+    // background: $color-primary-light;
+    background-color: #eee;
+    color: $color-primary-light;
+    border-bottom: 5px solid $color-primary-light;
+    border-radius: 5px;
+    span {
+      color: $color-danger;
+      font-weight: bold;
+    }
+    &:hover {
+      color: $color-white;
+      background: $color-primary-light;
+      border-color: #eee;
+      &::after {
+        transform: none;
+      }
+      span {
+        animation: slideInFromLeft 0.5s ease-in-out 0s infinite;
+        color: $color-white;
+      }
+    }
+  }
+}

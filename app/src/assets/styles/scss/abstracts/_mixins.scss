@@ -1,0 +1,43 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin grid-col($occupied-columns, $columns) {
+  @if ($occupied-columns==$columns) {
+    width: 100%;
+  } @else {
+    $a: ($columns - 1);
+    $b: ($occupied-columns - 1);
+    width: calc(
+      (
+          (100% - #{$gutter-horizontal}* (#{$a})) / (#{$columns})
+        ) * #{$occupied-columns} +
+        (#{$gutter-horizontal} * (#{$b}))
+    );
+  }
+}
+
+@mixin transition-ease($time: .5s) {
+  transition: all $time ease-in-out;
+}
+
+// set background & text color
+@mixin bg-and-text-color($background-color) {
+  background-color: $background-color;
+  color: set-bg-based-text-color($background-color);
+  a {
+    color: set-bg-based-text-color($background-color);
+  }
+}
+
+
+@mixin center-horizontal-vertical {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
